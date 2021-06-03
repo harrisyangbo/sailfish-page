@@ -1,5 +1,5 @@
-import mpUI from '@xes/dh-component-vue-mp-ui';
-import '@xes/dh-component-vue-mp-ui/dist/dh_component_vue_mp_ui.min.css';
+import mpUI from 'sailfish-ui';
+import 'sailfish-ui/dist/dh_component_vue_mp_ui.min.css';
 import renderComponent from './page/index.vue';
 import global from './common/global';
 import ElementUI from 'element-ui';
@@ -14,10 +14,10 @@ export default {
     formInputComponents = {}, // 表单输入/展示自定义组件
     tableFieldComponents = {}, // 表格自定义组件
     logicComponents = {}, // 逻辑自定义组件
-    bostonLoaderUrl = 'https://b.xes1v1.com'
+    sailfishLoaderUrl = '' // 微模块加载路径
   } = {}) {
     global.setItem('getNameByUrlHandler', getNameByUrl);
-    global.setItem('bostonLoaderUrl', bostonLoaderUrl);
+    global.setItem('sailfishLoaderUrl', sailfishLoaderUrl);
     Vue.use(ElementUI);
     Vue.use(mpUI, {
       hasPermit,
@@ -25,6 +25,6 @@ export default {
       tableFieldComponents,
       logicComponents
     });
-    Vue.component('catalyst-page', renderComponent);
+    Vue.component('sailfish-page', renderComponent);
   },
 };
